@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import
+            alias="MainView"
+            type="android.view.View" />
+
+        <import type="rs.ac.ni.pmf.databinding2022.User" />
+
+        <import type="java.util.List" />
+
+        <variable
+            name="user"
+            type="User" />
+
+        <variable
+            name="users"
+            type="List&lt;User>" />
+
+        <variable
+            name="handlers"
+            type="rs.ac.ni.pmf.databinding2022.UsersHandler" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/text_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text='@{user.firstName + " " +  user.lastName}'
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toTopOf="parent"
+
+            tools:text="Full name" />
+
+        <TextView
+            android:id="@+id/text_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@{user.username ?? `&lt;No value&gt;`}"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@+id/text_name"
+
+            tools:text="Username" />
+
+        <TextView
+            android:id="@+id/text_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@{@string/age_message(user.age)}"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@+id/text_username"
+
+            tools:text="Age" />
+
+
+        <CheckBox
+            android:id="@+id/cb_registered"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+
+            android:checked="@{user.registered}"
+
+            android:enabled="@{user.age > 25 ? true : false}"
+            android:text="Registered"
+
+            android:visibility="@{user.age >= 18 ? MainView.VISIBLE : MainView.GONE}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_age" />
+
+        <TextView
+            android:id="@+id/text_total_users"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@{`Total users:` + users.size()}"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cb_registered" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintStart_toStartOf="parent">
+
+            <Button
+                android:id="@+id/button_prev"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginEnd="8dp"
+
+                android:layout_weight="1"
+
+                android:onClick="@{() -> handlers.previousUser()}"
+                android:text="@string/prev_user" />
+
+            <Button
+                android:id="@+id/button_next"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+
+                android:layout_weight="1"
+
+                android:onClick="@{() -> handlers.nextUser()}"
+
+                android:text="@string/next_user" />
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
