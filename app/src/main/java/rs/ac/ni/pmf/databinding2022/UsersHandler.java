@@ -5,4 +5,5 @@ import android.view.View;
 public interface UsersHandler {
     void nextUser();
     void previousUser();
+    void toastValue(Object value);
 }

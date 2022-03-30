@@ -3,4 +3,5 @@
     <string name="age_message">You are %d years old</string>
     <string name="next_user">Next user</string>
     <string name="prev_user">Previous user</string>
+    <string name="username_hint">Enter a username</string>
 </resources>

@@ -3,6 +3,7 @@ package rs.ac.ni.pmf.databinding2022;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -41,5 +42,10 @@ public class MainActivity extends AppCompatActivity implements UsersHandler {
             _currentUser--;
             _binding.setUser(_usersRepository.getUser(_currentUser));
         }
+    }
+
+    @Override
+    public void toastValue(Object value) {
+        Toast.makeText(this, "Value: " + String.valueOf(value), Toast.LENGTH_LONG).show();
     }
 }
