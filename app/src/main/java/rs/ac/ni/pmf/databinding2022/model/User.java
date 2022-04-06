@@ -1,12 +1,18 @@
-package rs.ac.ni.pmf.databinding2022;
+package rs.ac.ni.pmf.databinding2022.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
 
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 
+import rs.ac.ni.pmf.databinding2022.BR;
+
 public class User extends BaseObservable implements Parcelable {
+    private static long COUNTER = 0;
+
+    private final long id;
     private String firstName;
     private String lastName;
     private String username;
@@ -14,6 +20,7 @@ public class User extends BaseObservable implements Parcelable {
     private boolean registered;
 
     public User(String firstName, String lastName, String username, int age, boolean registered) {
+        this.id = ++COUNTER;
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -22,6 +29,7 @@ public class User extends BaseObservable implements Parcelable {
     }
 
     protected User(Parcel in) {
+        id = in.readLong();
         firstName = in.readString();
         lastName = in.readString();
         username = in.readString();
@@ -40,6 +48,10 @@ public class User extends BaseObservable implements Parcelable {
             return new User[size];
         }
     };
+
+    public long getId() {
+        return id;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -62,6 +74,7 @@ public class User extends BaseObservable implements Parcelable {
     }
 
     public void setUsername(String username) {
+        Log.i("LOGTAG", "Username changed from " + this.username + " to " + username);
         this.username = username;
     }
 
@@ -94,10 +107,6 @@ public class User extends BaseObservable implements Parcelable {
                 '}';
     }
 
-    public void makeOlder() {
-        setAge(getAge() + 1);
-    }
-
     @Override
     public int describeContents() {
         return 0;
@@ -105,6 +114,7 @@ public class User extends BaseObservable implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeLong(id);
         parcel.writeString(firstName);
         parcel.writeString(lastName);
         parcel.writeString(username);

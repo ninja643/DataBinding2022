@@ -9,13 +9,13 @@
             alias="MainView"
             type="android.view.View" />
 
-        <import type="rs.ac.ni.pmf.databinding2022.User" />
+        <import type="rs.ac.ni.pmf.databinding2022.model.User" />
 
         <import type="java.util.List" />
 
         <variable
             name="user"
-            type="User" />
+            type="rs.ac.ni.pmf.databinding2022.model.User" />
 
         <variable
             name="users"
@@ -151,8 +151,6 @@
             android:layout_marginBottom="16dp"
 
             android:text="Get older"
-
-            android:onClick="@{() -> user.makeOlder()}"
 
             app:layout_constraintBottom_toTopOf="@id/command_buttons" />
 

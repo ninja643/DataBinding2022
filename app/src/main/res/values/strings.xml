@@ -4,4 +4,7 @@
     <string name="next_user">Next user</string>
     <string name="prev_user">Previous user</string>
     <string name="username_hint">Enter a username</string>
+    <string name="menu_delete_user">Delete user</string>
+    <string name="menu_edit_user">Edit user</string>
+    <string name="menu_add_user">Add new user</string>
 </resources>

@@ -1,4 +1,4 @@
-package rs.ac.ni.pmf.databinding2022;
+package rs.ac.ni.pmf.databinding2022.fragments;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +13,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import rs.ac.ni.pmf.databinding2022.R;
+import rs.ac.ni.pmf.databinding2022.UsersViewModel;
 import rs.ac.ni.pmf.databinding2022.databinding.UserDetailsFragmentBinding;
 
 public class UserDetailsFragment extends Fragment {

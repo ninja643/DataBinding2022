@@ -15,7 +15,7 @@
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/landscape_user_list_container"
 
-        android:name="rs.ac.ni.pmf.databinding2022.UsersListFragment"
+        android:name="rs.ac.ni.pmf.databinding2022.fragments.UsersListFragment"
 
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -28,7 +28,7 @@
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/landscape_user_details_container"
 
-        android:name="rs.ac.ni.pmf.databinding2022.UserDetailsFragment"
+        android:name="rs.ac.ni.pmf.databinding2022.fragments.UserDetailsFragment"
 
         android:layout_width="0dp"
         android:layout_height="match_parent"

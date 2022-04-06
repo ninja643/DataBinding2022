@@ -7,7 +7,7 @@
 
         <variable
             name="user"
-            type="rs.ac.ni.pmf.databinding2022.User" />
+            type="rs.ac.ni.pmf.databinding2022.model.User" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -59,13 +59,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+
             android:layout_marginTop="16dp"
 
             android:checked="@={user.registered}"
-
             android:enabled="@{user.age > 25 ? true : false}"
-            android:text="Registered"
 
+            android:text="Registered"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/user_details_age" />
 

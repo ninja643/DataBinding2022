@@ -5,7 +5,7 @@
 
         <variable
             name="user"
-            type="rs.ac.ni.pmf.databinding2022.User" />
+            type="rs.ac.ni.pmf.databinding2022.model.User" />
     </data>
 
     <LinearLayout

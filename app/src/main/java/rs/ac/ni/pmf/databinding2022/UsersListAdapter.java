@@ -5,13 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.TextView;
 
 import androidx.databinding.DataBindingUtil;
 
 import java.util.List;
 
 import rs.ac.ni.pmf.databinding2022.databinding.UserListElementBinding;
+import rs.ac.ni.pmf.databinding2022.model.User;
 
 public class UsersListAdapter extends BaseAdapter {
 
@@ -35,7 +35,8 @@ public class UsersListAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        return position;
+        final User user = (User) getItem(position);
+        return user.getId();
     }
 
     @Override
