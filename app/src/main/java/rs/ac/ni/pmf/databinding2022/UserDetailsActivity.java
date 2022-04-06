@@ -1,18 +1,16 @@
 package rs.ac.ni.pmf.databinding2022;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import rs.ac.ni.pmf.databinding2022.databinding.ActivityMainBinding;
+import rs.ac.ni.pmf.databinding2022.databinding.ActivityUserDetailsBinding;
 
-public class MainActivity extends AppCompatActivity implements UsersHandler {
+public class UserDetailsActivity extends AppCompatActivity implements UsersHandler {
 
-    private ActivityMainBinding _binding;
+    private ActivityUserDetailsBinding _binding;
 
     private UsersRepository _usersRepository = UsersRepository.INSTANCE;
     private int _currentUser = 0;
@@ -21,7 +19,7 @@ public class MainActivity extends AppCompatActivity implements UsersHandler {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        _binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        _binding = DataBindingUtil.setContentView(this, R.layout.activity_user_details);
         _binding.setUser(_usersRepository.getUser(_currentUser));
         _binding.setUsers(_usersRepository.getUsers());
         _binding.setHandlers(this);
